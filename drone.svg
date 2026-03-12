@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <defs>
+    <!-- Metallic body gradient -->
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2a30"/>
+      <stop offset="40%" stop-color="#1a1a1f"/>
+      <stop offset="100%" stop-color="#0f0f12"/>
+    </linearGradient>
+    <!-- Amber glow gradient -->
+    <radialGradient id="amberGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Eye glow -->
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+    <!-- Propeller blur gradient -->
+    <radialGradient id="propGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Carbon fiber pattern -->
+    <pattern id="carbon" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect width="4" height="4" fill="#1a1a1f"/>
+      <rect width="2" height="2" fill="#1e1e23"/>
+      <rect x="2" y="2" width="2" height="2" fill="#1e1e23"/>
+    </pattern>
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="propBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+  </defs>
+
+  <!-- === AMBIENT GLOW BEHIND DRONE === -->
+  <ellipse cx="250" cy="210" rx="120" ry="80" fill="url(#amberGlow)" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- === DRONE ARMS === -->
+  <!-- Front-left arm -->
+  <g>
+    <path d="M200 185 L110 130" stroke="#2a2a30" stroke-width="8" stroke-linecap="round"/>
+    <path d="M200 185 L110 130" stroke="#3a3a42" stroke-width="4" stroke-linecap="round"/>
+    <!-- Amber LED strip on arm -->
+    <path d="M170 165 L130 142" stroke="#f59e0b" stroke-width="1.5" opacity="0.6" stroke-linecap="round">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Front-right arm -->
+  <g>
+    <path d="M300 185 L390 130" stroke="#2a2a30" stroke-width="8" stroke-linecap="round"/>
+    <path d="M300 185 L390 130" stroke="#3a3a42" stroke-width="4" stroke-linecap="round"/>
+    <path d="M330 165 L370 142" stroke="#f59e0b" stroke-width="1.5" opacity="0.6" stroke-linecap="round">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+  </g>
+  <!-- Rear-left arm -->
+  <g>
+    <path d="M210 215 L120 270" stroke="#2a2a30" stroke-width="7" stroke-linecap="round"/>
+    <path d="M210 215 L120 270" stroke="#3a3a42" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M180 232 L140 258" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" stroke-linecap="round">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </path>
+  </g>
+  <!-- Rear-right arm -->
+  <g>
+    <path d="M290 215 L380 270" stroke="#2a2a30" stroke-width="7" stroke-linecap="round"/>
+    <path d="M290 215 L380 270" stroke="#3a3a42" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M320 232 L360 258" stroke="#f59e0b" stroke-width="1.2" opacity="0.5" stroke-linecap="round">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </path>
+  </g>
+
+  <!-- === PROPELLER MOTORS (hubs) === -->
+  <circle cx="110" cy="128" r="10" fill="#2a2a30" stroke="#3a3a42" stroke-width="1.5"/>
+  <circle cx="110" cy="128" r="4" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="390" cy="128" r="10" fill="#2a2a30" stroke="#3a3a42" stroke-width="1.5"/>
+  <circle cx="390" cy="128" r="4" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="120" cy="270" r="9" fill="#2a2a30" stroke="#3a3a42" stroke-width="1.5"/>
+  <circle cx="120" cy="270" r="3.5" fill="#f59e0b" opacity="0.5"/>
+  <circle cx="380" cy="270" r="9" fill="#2a2a30" stroke="#3a3a42" stroke-width="1.5"/>
+  <circle cx="380" cy="270" r="3.5" fill="#f59e0b" opacity="0.5"/>
+
+  <!-- === SPINNING PROPELLERS === -->
+  <!-- Front-left propeller -->
+  <g filter="url(#propBlur)">
+    <ellipse cx="110" cy="128" rx="42" ry="42" fill="url(#propGlow)"/>
+    <g>
+      <line x1="68" y1="128" x2="152" y2="128" stroke="#f59e0b" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+      <line x1="110" y1="86" x2="110" y2="170" stroke="#f59e0b" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 110 128" to="360 110 128" dur="0.15s" repeatCount="indefinite"/>
+    </g>
+    <!-- Motion blur ring -->
+    <circle cx="110" cy="128" r="36" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.15">
+      <animate attributeName="opacity" values="0.1;0.25;0.1" dur="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Front-right propeller -->
+  <g filter="url(#propBlur)">
+    <ellipse cx="390" cy="128" rx="42" ry="42" fill="url(#propGlow)"/>
+    <g>
+      <line x1="348" y1="128" x2="432" y2="128" stroke="#f59e0b" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+      <line x1="390" y1="86" x2="390" y2="170" stroke="#f59e0b" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 390 128" to="360 390 128" dur="0.12s" repeatCount="indefinite"/>
+    </g>
+    <circle cx="390" cy="128" r="36" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.15">
+      <animate attributeName="opacity" values="0.1;0.25;0.1" dur="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Rear-left propeller -->
+  <g filter="url(#propBlur)">
+    <ellipse cx="120" cy="270" rx="36" ry="36" fill="url(#propGlow)"/>
+    <g>
+      <line x1="84" y1="270" x2="156" y2="270" stroke="#f59e0b" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+      <line x1="120" y1="234" x2="120" y2="306" stroke="#f59e0b" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 120 270" to="360 120 270" dur="0.18s" repeatCount="indefinite"/>
+    </g>
+    <circle cx="120" cy="270" r="30" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.12">
+      <animate attributeName="opacity" values="0.08;0.2;0.08" dur="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Rear-right propeller -->
+  <g filter="url(#propBlur)">
+    <ellipse cx="380" cy="270" rx="36" ry="36" fill="url(#propGlow)"/>
+    <g>
+      <line x1="344" y1="270" x2="416" y2="270" stroke="#f59e0b" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+      <line x1="380" y1="234" x2="380" y2="306" stroke="#f59e0b" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 380 270" to="360 380 270" dur="0.14s" repeatCount="indefinite"/>
+    </g>
+    <circle cx="380" cy="270" r="30" fill="none" stroke="#f59e0b" stroke-width="0.8" opacity="0.12">
+      <animate attributeName="opacity" values="0.08;0.2;0.08" dur="0.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- === MAIN BODY === -->
+  <!-- Body shadow -->
+  <ellipse cx="250" cy="220" rx="65" ry="18" fill="black" opacity="0.3" filter="url(#bigGlow)"/>
+
+  <!-- Main body shell - angular hexagonal shape -->
+  <path d="M200 180 L215 165 L285 165 L300 180 L305 210 L290 230 L210 230 L195 210 Z" fill="url(#bodyGrad)" stroke="#3a3a42" stroke-width="1.5"/>
+  <!-- Carbon fiber overlay -->
+  <path d="M200 180 L215 165 L285 165 L300 180 L305 210 L290 230 L210 230 L195 210 Z" fill="url(#carbon)" opacity="0.3"/>
+
+  <!-- Top plate detail -->
+  <path d="M218 170 L282 170 L292 180 L208 180 Z" fill="#252529" stroke="#3a3a42" stroke-width="0.5"/>
+
+  <!-- Amber racing stripes -->
+  <path d="M210 185 L290 185" stroke="#f59e0b" stroke-width="2" opacity="0.7"/>
+  <path d="M208 190 L292 190" stroke="#d97706" stroke-width="1" opacity="0.4"/>
+  <path d="M212 220 L288 220" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- === CAMERA / EYES === -->
+  <!-- Eye housing -->
+  <rect x="225" y="172" width="50" height="18" rx="4" fill="#111115" stroke="#2a2a30" stroke-width="1"/>
+  <!-- Left eye -->
+  <ellipse cx="238" cy="181" rx="8" ry="6" fill="url(#eyeGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  <!-- Right eye -->
+  <ellipse cx="262" cy="181" rx="8" ry="6" fill="url(#eyeGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+  </ellipse>
+  <!-- Eye scanner line -->
+  <line x1="230" y1="181" x2="270" y2="181" stroke="#fbbf24" stroke-width="0.5" opacity="0.3">
+    <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- === FRONT SENSORS === -->
+  <circle cx="250" cy="168" r="2.5" fill="#f59e0b" opacity="0.7">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="240" cy="166" r="1.5" fill="#f97316" opacity="0.4"/>
+  <circle cx="260" cy="166" r="1.5" fill="#f97316" opacity="0.4"/>
+
+  <!-- === BOTTOM DETAILS === -->
+  <!-- Landing gear legs -->
+  <path d="M220 230 L215 250 L210 255" stroke="#3a3a42" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M280 230 L285 250 L290 255" stroke="#3a3a42" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Landing skids -->
+  <path d="M200 255 L220 255" stroke="#2a2a30" stroke-width="3" stroke-linecap="round"/>
+  <path d="M280 255 L300 255" stroke="#2a2a30" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Bottom amber engine glow -->
+  <ellipse cx="250" cy="235" rx="30" ry="8" fill="#f59e0b" opacity="0.1">
+    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="250" cy="238" rx="15" ry="4" fill="#f59e0b" opacity="0.2">
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="1.5s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- === ANTENNA === -->
+  <line x1="250" y1="165" x2="250" y2="148" stroke="#3a3a42" stroke-width="1.5"/>
+  <circle cx="250" cy="146" r="2" fill="#f59e0b" filter="url(#glow)">
+    <animate attributeName="r" values="1.5;2.5;1.5" dur="1s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- === SIDE VENTS === -->
+  <g opacity="0.6">
+    <line x1="196" y1="195" x2="196" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+    <line x1="199" y1="195" x2="199" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+    <line x1="202" y1="195" x2="202" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+  </g>
+  <g opacity="0.6">
+    <line x1="298" y1="195" x2="298" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+    <line x1="301" y1="195" x2="301" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+    <line x1="304" y1="195" x2="304" y2="205" stroke="#f59e0b" stroke-width="0.8"/>
+  </g>
+
+  <!-- === BODY HIGHLIGHT === -->
+  <path d="M215 168 L285 168 L295 177 L205 177 Z" fill="white" opacity="0.03"/>
+
+  <!-- === HEX AI CORE on top === -->
+  <polygon points="250,192 258,196 258,204 250,208 242,204 242,196" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 200" to="360 250 200" dur="8s" repeatCount="indefinite"/>
+  </polygon>
+  <polygon points="250,195 255,198 255,202 250,205 245,202 245,198" fill="#f59e0b" opacity="0.15">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 200" to="-360 250 200" dur="6s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Floating whole drone animation -->
+  <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,-3; 0,-10; 0,0" dur="6s" repeatCount="indefinite"/>
+</svg>
